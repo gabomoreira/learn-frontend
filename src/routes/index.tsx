@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom'
 import { NotFound } from '../pages/NotFound'
 import { Layout } from '../pages/private/Layout'
 import { AuthLayout } from '../pages/public/AuthLayout'
@@ -8,14 +8,14 @@ import { publicRoutes } from './publicRoutes'
 
 export const Routes= () => {
 
-  const token = 'null'
+  const token = null
 
   const public_routes = [
     {
       path: '/',
       element: <AuthLayout />,
       children: publicRoutes,
-      errorElement: <NotFound />
+      errorElement: <NotFound routesType='public' />
     },
   ]
 

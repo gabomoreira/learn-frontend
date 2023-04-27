@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const NotFound = () => {
+interface Props {
+  routesType?: string
+}
+
+export const NotFound = ({routesType = 'private'}: Props) => {
   return (
     <div className='flex-1 flex p-3 items-center justify-center h-screen bg-gray-900'>
       <div className='flex flex-col  items-center justify-center gap-3'>
@@ -11,9 +15,9 @@ export const NotFound = () => {
         </div>
 
         <Link
-          to='/'
+          to={`${routesType ? '/login' : '/'}`}
           className='text-white p-2 bg-gray-800 rounded-md hover:bg-gray-700 transition'
-        >Voltar para a página inicial</Link>
+        >Voltar para a página {routesType === 'public' ? 'de login' : 'inicial'}</Link>
       </div>
     </div>
   )
