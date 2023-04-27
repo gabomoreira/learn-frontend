@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
 import { z, ZodType } from 'zod'
 
 import { Input } from '../../../../shared/form/Input'
@@ -43,7 +44,7 @@ export const Form = ({handleLogin, isLoading} : Props) => {
             sm:max-w-[50%]
           ">
           <div className="text-center mb-2 text-white text-3xl">
-            Login
+            Entrar no Sistema
           </div>
           <Input 
             register={{...register('email')}} 
@@ -71,6 +72,16 @@ export const Form = ({handleLogin, isLoading} : Props) => {
             ">
               Entrar
           </button>
+
+          <div className='flex items-center justify-center gap-3'>
+            <div className='font-light text-white'>
+              Não tem uma conta?
+            </div>
+
+            <Link to='/register' className="text-gray-400 underline hover:text-gray-50">
+              Criar nova conta
+            </Link>
+          </div>
         </form>
   )
 }
