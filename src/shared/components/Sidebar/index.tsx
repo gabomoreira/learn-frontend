@@ -18,8 +18,6 @@ export const Sidebar = () => {
     const pathname = useLocation().pathname
     const {isOpen, handleToggle} = useSidebar((state) => state)
 
-    console.log(location, 'location')
-
     async function handleLogout() {
         try {
             // await axios logout
@@ -41,7 +39,7 @@ export const Sidebar = () => {
             relative
         ">
             <Link to='/' className="flex items-center gap-3">
-                <FaBookOpen size={18} />
+                <FaBookOpen size={isOpen ? 18 : 24} />
                 {isOpen && (
                     'LearnApp'
                 )}

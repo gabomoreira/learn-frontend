@@ -15,21 +15,20 @@ export const MenuItem = ({path, pathname, icon: Icon, label, isOpen}: Props) => 
   return (
       <Link to={path} 
         className={`
-            mb-2
-            rounded-md 
-            hover:bg-gray-700 
-            ${pathname === path ? 'bg-gray-700' : 'bg-transparent'}
-        `}>
-        <li className={`
-                flex 
-                items-center 
+        flex 
+                items-center
+                ${!isOpen && 'justify-center'} 
                 text-white 
                 gap-3 
                 p-3
                 ${isOpen && 'py-2'} 
                 rounded-m 
-                 `}
-            >
+            mb-2
+            rounded-md 
+            hover:bg-gray-700 
+            ${pathname === path ? 'bg-gray-700' : 'bg-transparent'}
+        `}>
+        
               <Icon size={16} />
 
               {isOpen && (
@@ -37,7 +36,6 @@ export const MenuItem = ({path, pathname, icon: Icon, label, isOpen}: Props) => 
                   {label}
                 </div>
               )}
-        </li>
     </Link>
   )
 }
