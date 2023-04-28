@@ -12,7 +12,12 @@ export const Layout = () => {
           <div className='flex-1 flex flex-col text-white bg-slate-950'>
             <Header />
             
-            <div className="px-7 py-5">
+            <div className="flex-1 px-7 py-5 overflow-auto 
+              scrollbar 
+              scrollbar-thumb-gray-700
+              scrollbar-track-gray-900
+              scrollbar-thin
+              ">
               <Outlet />
             </div>
           </div>

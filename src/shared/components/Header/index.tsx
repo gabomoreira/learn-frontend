@@ -2,7 +2,7 @@ import {IoMdNotificationsOutline} from 'react-icons/io'
 
 export const Header = () => {
   return (
-    <div className="flex w-full px-3 py-3 gap-3 items-center justify-end bg-gray-900">
+    <div className="flex w-full px-3 py-3 gap-3 items-center justify-end bg-transparent">
         <div className='font-semibold'>
             Senhor Batata
         </div>

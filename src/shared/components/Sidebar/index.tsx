@@ -60,7 +60,7 @@ export const Sidebar = () => {
         </div>
 
         <div className="flex-1">
-            <ul className="flex flex-col">
+            <ul className="flex flex-col gap-3">
                 {menuItems.map(i => (
                     <MenuItem 
                         icon={pathname === i.path ? i.iconChecked : i.icon}
@@ -74,7 +74,7 @@ export const Sidebar = () => {
             </ul>
         </div>
 
-        <button onClick={handleLogout} className='hover:bg-gray-700 mb-2 rounded-md'>
+        <button onClick={handleLogout} className='hover:bg-gray-700 rounded-md mb-3'>
             <MenuItem 
                 icon={MdLogout}
                 label='Logout'

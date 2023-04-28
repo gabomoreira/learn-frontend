@@ -2,6 +2,37 @@
 
 export const Home = () => {
   return (
-    <div>home page</div>
+    <div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+    </div>
   )
 }
