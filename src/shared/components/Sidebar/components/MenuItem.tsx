@@ -29,7 +29,7 @@ export const MenuItem = ({path, pathname, icon: Icon, label, isOpen}: Props) => 
             ${pathname === path ? 'bg-gray-700' : 'bg-transparent'}
         `}>
         
-              <Icon size={16} />
+              <Icon size={18} />
 
               {isOpen && (
                 <div className=''>
