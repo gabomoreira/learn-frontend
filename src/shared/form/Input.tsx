@@ -9,7 +9,7 @@ export const Input = ({register, placeholder, error}: Props) => {
   return (
     <>
         <div className="bg-gray-900 rounded-md">
-            <input {...register} className="w-full bg-transparent p-3 rounded-md text-white outline-none none"
+            <input {...register} className="w-full bg-transparent p-3 rounded-md text-white outline-none focus:outline-gray-400 "
                 type="text" 
                 placeholder={placeholder} />
         </div>

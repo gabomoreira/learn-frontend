@@ -6,15 +6,11 @@ export const privateRoutes = [
     element: <Home />
   },
   {
-    path: "offers",
-    element: <div>offers page</div>,
+    path: "courses",
+    element: <div>courses page</div>,
   },
   {
-    path: "resources",
-    element: <div>resources page</div>,
-  },
-  {
-    path: "section",
-    element: <div>section page</div>,
+    path: "forum",
+    element: <div>forum page</div>,
   },
 ]

@@ -15,7 +15,7 @@ export const NotFound = ({routesType = 'private'}: Props) => {
         </div>
 
         <Link
-          to={`${routesType ? '/login' : '/'}`}
+          to={`${routesType === 'public' ? '/login' : '/'}`}
           className='text-white p-2 bg-gray-800 rounded-md hover:bg-gray-700 transition'
         >Voltar para a página {routesType === 'public' ? 'de login' : 'inicial'}</Link>
       </div>

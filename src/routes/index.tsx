@@ -8,7 +8,7 @@ import { publicRoutes } from './publicRoutes'
 
 export const Routes= () => {
 
-  const token = null
+  const token = 'null'
 
   const public_routes = [
     {
