@@ -1,3 +1,4 @@
+import { Courses } from "../pages/private/Courses";
 import { Home } from "../pages/private/Home";
 
 export const privateRoutes = [
@@ -7,7 +8,7 @@ export const privateRoutes = [
   },
   {
     path: "courses",
-    element: <div>courses page</div>,
+    element:  <Courses />,
   },
   {
     path: "forum",
