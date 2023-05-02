@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Item } from "./components/Item"
 
 const items = [
@@ -10,6 +10,10 @@ const items = [
 export const Notifications = () => {
     const [onlyNonReads, setOnlyNonReads] = useState(0)
 
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+ 
+
     function handleToogleOnlyNonReads() {
         setOnlyNonReads(onlyNonReads === 0 ? 1 : 0)
     }
@@ -18,6 +22,18 @@ export const Notifications = () => {
         // api read notification
     }
 
+    useEffect(() => {
+        const updateScreenWidth = () => {
+          setScreenWidth(window.innerWidth);
+        };
+    
+        window.addEventListener('resize', updateScreenWidth);
+    
+        return () => {
+          window.removeEventListener('resize', updateScreenWidth);
+        };
+      }, []);
+
   return (
     <div className="flex flex-col gap-5 pb-5">
         <div className="text-white font-semibold text-3xl">Notificações</div>
@@ -25,7 +41,7 @@ export const Notifications = () => {
         <div>
             <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" value={onlyNonReads} onChange={handleToogleOnlyNonReads} className="sr-only peer" />
-                <div className="
+                <div className={`
                     w-11 
                     h-6 
                     bg-gray-400 
@@ -35,12 +51,12 @@ export const Notifications = () => {
                     peer-checked:after:translate-x-full 
                     peer-checked:bg-gray-700 
                     after:border-gray-300 after:border 
-                    after:absolute after:top-[4px] 
+                    ${screenWidth < 422 ? 'after:absolute after:top-[18px]' : 'after:absolute after:top-[4px]'}
                     after:left-[2px] after:bg-white 
                     after:rounded-full after:h-5 after:w-5 
                     after:transition-all
                     focus:outline-none !important
-                    "
+                    `}
                 />
                 <span className="ml-3 text-lg font-medium text-white">Mostrar apenas as não lidas</span>
             </label>

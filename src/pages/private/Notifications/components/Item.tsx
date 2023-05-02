@@ -16,13 +16,17 @@ export const Item = ({text, moment, read, route, handleRead}: Props) => {
   
 
   return (
-    <div className="flex p-3 rounded-md justify-between items-center w-full bg-gray-700">
+    <div className="flex p-3 flex-col sm:flex-row rounded-md sm:justify-between items-center w-full bg-gray-700">
         <div className="flex gap-3 flex-1">
-          <div className="text-lg font-semibold text-white">{text}</div>
-          <div className="text-lg font-medium text-gray-400">{formatDate(moment)}</div>
+          <div className="text-md sm:text-lg font-semibold text-white text-center mb-2 sm:text-left sm:mb-0">{text}</div>
+          <div className="hidden sm:block text-lg font-medium text-gray-400">{formatDate(moment)}</div>
         </div>
         
-        <div className="flex gap-3 items-center justify-end">
+       
+       <div className="flex justify-between items-center w-full sm:w-max">
+        <div className="block sm:hidden text-lg font-medium text-gray-400">{formatDate(moment)}</div>
+          
+        <div className="flex gap-3 items-center w-full justify-end">
           {read ? (
             <GoMailRead size={24} />
           ) : (
@@ -31,6 +35,7 @@ export const Item = ({text, moment, read, route, handleRead}: Props) => {
 
           <div className="text-md font-semibold text-gray-200">{read ? 'Lida' : 'Não lida'}</div>
         </div>
+       </div>
     </div>
   )
 }
