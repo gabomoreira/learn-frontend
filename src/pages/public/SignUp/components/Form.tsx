@@ -13,7 +13,7 @@ export type FormData = {
 
 interface Props {
   handleSignUp: (data: FormData) => Promise<void>
-    isLoading: boolean
+  isLoading: boolean
 }
 
 export const Form = ({handleSignUp, isLoading} : Props) => {

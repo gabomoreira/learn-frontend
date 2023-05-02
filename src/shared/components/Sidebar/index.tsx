@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 
 import {AiOutlineHome, AiFillHome, AiFillNotification, AiOutlineNotification} from 'react-icons/ai'
 import {MdOutlineForum, MdForum, MdOutlineSchool, MdSchool, MdLogout} from 'react-icons/md'
+import {FaRegUserCircle, FaUserCircle} from 'react-icons/fa'
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 import { MenuItem } from "./components/MenuItem"
 import { useSidebar } from "../../hooks/Sidebar"
@@ -13,6 +14,7 @@ const menuItems = [
     {label: 'Cursos', path: '/courses', icon: MdOutlineSchool, iconChecked: MdSchool},
     {label: 'Notificações', path: '/notifications', icon: AiOutlineNotification, iconChecked: AiFillNotification},
     {label: 'Fórum', path: '/forum', icon: MdOutlineForum, iconChecked: MdForum},
+    {label: 'Perfil', path: '/profile', icon: FaRegUserCircle, iconChecked: FaUserCircle},
 ]
 
 export const Sidebar = () => {
