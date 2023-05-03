@@ -1,4 +1,4 @@
-import { Item } from "./components/Item"
+import { ItemVerticalImg } from "../../../shared/components/ItemVerticalImg"
 
 const courses = [
     {
@@ -37,10 +37,10 @@ export const Courses = () => {
 
         <div className="flex flex-wrap gap-5 justify-center">
             {courses.map(i => (
-               <Item 
-                    id={i.id}
+               <ItemVerticalImg 
                     title={i.title}
                     imgUri={i.img}
+                    route={`${i.id}/offers`}
                />
             ))}
         </div>
