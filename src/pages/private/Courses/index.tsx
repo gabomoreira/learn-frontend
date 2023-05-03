@@ -1,3 +1,4 @@
+import { Item } from "./components/Item"
 
 const courses = [
     {
@@ -36,26 +37,11 @@ export const Courses = () => {
 
         <div className="flex flex-wrap gap-5 justify-center">
             {courses.map(i => (
-                <div key={i.id} 
-                    className='
-                    flex 
-                    flex-col 
-                    gap-4  
-                    items-center   
-                    bg-gray-700 
-                    p-5 
-                    rounded-md 
-                    cursor-pointer 
-                    hover:bg-gray-500
-                    w-36
-                    sm:w-72 
-                '>
-                    <img src={i.img} alt={i.title} className='h-20 w-20 object-contain' />
-
-                    <div className="flex-1 text-center font-semibold text-white">
-                        {i.title}
-                    </div>
-                </div>
+               <Item 
+                    id={i.id}
+                    title={i.title}
+                    imgUri={i.img}
+               />
             ))}
         </div>
     </div>
