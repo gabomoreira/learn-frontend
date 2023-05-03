@@ -1,5 +1,6 @@
 import { Courses } from "../pages/private/Courses";
 import { Home } from "../pages/private/Home";
+import { Lessons } from "../pages/private/Lessons";
 import { Notifications } from "../pages/private/Notifications";
 import { Offers } from "../pages/private/Offers";
 import { Profile } from "../pages/private/Profile";
@@ -22,6 +23,10 @@ export const privateRoutes = [
   {
     path: "/courses/:courseId/offers/:offerId",
     element: <Sections />,
+  },
+  {
+    path: "/courses/:courseId/offers/:offerId/lessons",
+    element: <Lessons />,
   },
   {
     path: "notifications",
