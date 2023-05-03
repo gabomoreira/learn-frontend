@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { ItemVerticalImg } from "../../../shared/components/ItemVerticalImg"
 
 const courses = [
@@ -29,6 +30,8 @@ const courses = [
 ]
 
 export const Courses = () => {
+    const [isLoading, setIsLoading] = useState(false)
+
   return (
     <div className="flex flex-col gap-5">
         <div className="font-semibold text-3xl text-white">
@@ -41,6 +44,7 @@ export const Courses = () => {
                     title={i.title}
                     imgUri={i.img}
                     route={`${i.id}/offers`}
+                    isLoading={isLoading}
                />
             ))}
         </div>

@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import React from 'react'
+import React, { useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { z, ZodType } from 'zod'
 import { Avatar } from '../../../shared/components/Avatar'
@@ -11,6 +11,7 @@ type FormData = {
 }
 
 export const Profile = () => {
+    const [isLoading, setIsLoading] = useState(true)
     
     const schema: ZodType<FormData> = z.object({
         password: z.string().min(6),
@@ -34,6 +35,7 @@ export const Profile = () => {
                     src='https://github.com/gabomoreira.png'
                     size='lg'
                     name='Senhor Batata'
+                    isLoading={isLoading}
                 />
 
                 <button className='self-center bg-gray-800 py-2 px-3 rounded-md hover:bg-gray-700 transition-all'>Mudar foto</button>
