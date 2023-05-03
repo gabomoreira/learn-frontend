@@ -1,7 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 import { z, ZodType } from 'zod'
+import { getProfileData, ProfileProps,  } from '../../../services/Profile'
 import { Avatar } from '../../../shared/components/Avatar'
 import { Input } from '../../../shared/form/Input'
 
@@ -12,6 +13,7 @@ type FormData = {
 
 export const Profile = () => {
     const [isLoading, setIsLoading] = useState(true)
+    const [profileData, setProfileData] = useState<ProfileProps | null>(null)
     
     const schema: ZodType<FormData> = z.object({
         password: z.string().min(6),
@@ -24,15 +26,30 @@ export const Profile = () => {
       const {
         register, 
         handleSubmit,
-        formState: {errors} 
-      } = useForm<FieldValues>({defaultValues:{ email: 'gabo@gmail.com'} , resolver: zodResolver(schema)})
+        formState: {errors}, 
+        setValue
+      } = useForm<FieldValues>({defaultValues:{ email: profileData?.email} , resolver: zodResolver(schema)})
+
+    async function fetchProfile() {
+    setIsLoading(true)
+
+    const data = await getProfileData()
+    setProfileData(data)
+    setValue("email", data?.email)
+
+    setIsLoading(false)
+    }
+
+    useEffect(() => {
+    fetchProfile()
+    } ,[])
 
   return (
     <div>
        <div className='flex flex-col sm:flex-row items-center justify-center gap-20'>
             <div className='flex flex-col gap-5'>
                 <Avatar 
-                    src='https://github.com/gabomoreira.png'
+                    src={profileData?.imgUri ? profileData.imgUri : ''}
                     size='lg'
                     name='Senhor Batata'
                     isLoading={isLoading}
