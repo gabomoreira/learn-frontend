@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <div className="flex w-full px-3 py-3 gap-3 items-center justify-end bg-transparent">
-        <div className='font-semibold'>
+        <div className='hidden sm:block font-semibold'>
             Senhor Batata
         </div>
 
