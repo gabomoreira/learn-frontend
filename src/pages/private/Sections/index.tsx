@@ -21,51 +21,38 @@ export const Sections = () => {
 
         <div className='flex flex-col gap-3'>
             {items.map(i => (
-                <div className={`
-                    ${isLoading ? `loader 
-                    m-auto 
-                    border-8 
-                    rounded-md
-                    animate-spin 
-                    animate-pulse 
-                    bg-gray-700 
-                    border-t-8 
-                    border-gray-500` : ''}
-                `}
+                <div
+                    key={i.id} 
+                    onClick={handleGoLessons} 
+                    className={`
+                        flex 
+                        p-3 
+                        gap-10 
+                        flex-col 
+                        sm:flex-row 
+                        w-full 
+                        bg-gray-700 
+                        rounded-md 
+                        hover:bg-gray-600 
+                        cursor-pointer
+                        `}
                 >
-                    <div 
-                        onClick={handleGoLessons} 
-                        className={`
-                            flex 
-                            p-3 
-                            gap-10 
-                            flex-col 
-                            sm:flex-row 
-                            w-full 
-                            bg-gray-700 
-                            rounded-md 
-                            hover:bg-gray-600 
-                            cursor-pointer
-                            ${isLoading && 'invisible'}
-                            `}
-                        >
-                        <div className="flex flex-col items-center">
-                            <div className="font-semibold text-white text-lg">{i.title}</div>
+                <div className="flex flex-col items-center">
+                    <div className="font-semibold text-white text-lg">{i.title}</div>
 
-                            <img 
-                                src={i.imgUri} 
-                                alt={i.title} 
-                                className='w-40 h-40 object-contain'
-                            />
-                        </div>
+                    <img 
+                        src={i.imgUri} 
+                        alt={i.title} 
+                        className='w-40 h-40 object-contain'
+                    />
+                </div>
 
-                        <div className="flex-1 w-full h-max">
-                            <div className="p-2 bg-gray-500 rounded-md w-full">
-                                <div className="text-whtie">{i.description}</div>
-                            </div>
-                        </div>
+                <div className="flex-1 w-full h-max">
+                    <div className="p-2 bg-gray-500 rounded-md w-full">
+                        <div className="text-whtie">{i.description}</div>
                     </div>
                 </div>
+            </div>
             ))}
         </div>
     </div>

@@ -3,17 +3,6 @@ import { ItemVerticalImg } from '../../../shared/components/ItemVerticalImg'
 
 const items = [
     {id: 'a', title: 'Oferta 1.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'b', title: 'Oferta 2.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'c', title: 'Oferta 3.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'a', title: 'Oferta 1.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'b', title: 'Oferta 2.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'c', title: 'Oferta 3.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'a', title: 'Oferta 1.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'b', title: 'Oferta 2.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'c', title: 'Oferta 3.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'a', title: 'Oferta 1.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'b', title: 'Oferta 2.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
-    {id: 'c', title: 'Oferta 3.0', imgUri: 'https://cdn-icons-png.flaticon.com/512/2416/2416471.png'},
 ]
 
 export const Offers = () => {
@@ -26,6 +15,7 @@ export const Offers = () => {
         <div className='flex gap-5 flex-wrap justify-center'>
             {items.map(i => (
                 <ItemVerticalImg 
+                    key={i.id} 
                     imgUri={i.imgUri}
                     title={i.title}
                     route={i.id}

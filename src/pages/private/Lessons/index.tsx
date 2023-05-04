@@ -26,6 +26,7 @@ export const Lessons = () => {
         <div className="flex flex-col gap-3">
             {items.map(i => (
                <Item 
+                    key={i.id} 
                     isOpen={i.id === expansed}
                     title={i.title}
                     description={i.description}
