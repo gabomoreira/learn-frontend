@@ -1,10 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useEffect, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z, ZodType } from 'zod'
 import { getProfileData, ProfileProps,  } from '../../../services/Profile'
 import { Avatar } from '../../../shared/components/Avatar'
 import { Input } from '../../../shared/form/Input'
+import { useAuth } from '../../../shared/hooks/Auth'
 
 type FormData = {
     password: string
@@ -12,6 +14,8 @@ type FormData = {
 }
 
 export const Profile = () => {
+    const user = useAuth(state => state.user)
+
     const [isLoading, setIsLoading] = useState(true)
     const [profileData, setProfileData] = useState<ProfileProps | null>(null)
     
@@ -30,18 +34,24 @@ export const Profile = () => {
         setValue
       } = useForm<FieldValues>({defaultValues:{ email: profileData?.email} , resolver: zodResolver(schema)})
 
-    async function fetchProfile() {
-    setIsLoading(true)
+    // async function fetchProfile() {
+    //     setIsLoading(true)
 
-    const data = await getProfileData()
-    setProfileData(data)
-    setValue("email", data?.email)
-
-    setIsLoading(false)
-    }
+    //     try {
+    //         const data = await getProfileData()
+    //         setProfileData(data)
+    //         setValue("email", data?.email)
+    //     } catch (error) {
+    //         toast.error("Erro ao buscar os dados do perfil")
+    //     } finally {
+    //         setIsLoading(false)
+    //     }
+    // }
 
     useEffect(() => {
-    fetchProfile()
+        setValue("email", user.email)
+
+        // fetchProfile()
     } ,[])
 
   return (
@@ -49,10 +59,9 @@ export const Profile = () => {
        <div className='flex flex-col sm:flex-row items-center justify-center gap-20'>
             <div className='flex flex-col gap-5'>
                 <Avatar 
-                    src={profileData?.imgUri ? profileData.imgUri : ''}
+                    src={user.imgUri}
                     size='lg'
                     name='Senhor Batata'
-                    isLoading={isLoading}
                 />
 
                 <button className='self-center bg-gray-800 py-2 px-3 rounded-md hover:bg-gray-700 transition-all'>Mudar foto</button>

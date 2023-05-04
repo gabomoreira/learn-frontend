@@ -1,22 +1,29 @@
 import { useState } from 'react'
 import { FaBookOpen } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../shared/hooks/Auth'
 import { Form, FormData } from './components/Form'
 
 export const SignIn = () => {
+  const login = useAuth(state => state.login)
+  const navigate = useNavigate()
+
   const [isLoading, setIsLoading] = useState(false)
 
   async function handleLogin(data: FormData) {
-    setIsLoading(true)
+    login(data)
+    navigate('/')
 
-    try {
-      console.log('form data', data)
-      // axios
-    } catch (error) {
+    // setIsLoading(true)
+
+    // try {
+    //   console.log('form data', data)
+    //   // axios
+    // } catch (error) {
       
-    } finally {
-      setIsLoading(false)
-    }
+    // } finally {
+    //   setIsLoading(false)
+    // }
   }
 
   return (

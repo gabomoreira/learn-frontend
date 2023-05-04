@@ -4,7 +4,7 @@ interface Props {
     src: string
     size: 'lg' | 'xs'
     name: string
-    isLoading: boolean
+    isLoading?: boolean
 }
 
 export const Avatar = ({src, size, name, isLoading}: Props) => {
@@ -35,7 +35,6 @@ export const Avatar = ({src, size, name, isLoading}: Props) => {
               m-auto 
               border-8 
               rounded-full 
-              animate-spin 
               animate-pulse 
               bg-gray-700 
               border-t-8 

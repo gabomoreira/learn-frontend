@@ -1,8 +1,15 @@
+import { Toaster } from "react-hot-toast";
 import { Routes } from "./routes/index";
 
 function App() {
   return (
-    <Routes />
+    <>
+      <Routes />
+      <Toaster 
+        toastOptions={{
+          duration: 3000,
+        }} />
+    </>
   )
 }
 

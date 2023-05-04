@@ -8,10 +8,10 @@ import { Resources } from "../pages/private/Resources";
 import { Sections } from "../pages/private/Sections";
 
 export const privateRoutes = [
-  {
-    path: "/",
-    element: <Home />
-  },
+  // {
+  //   path: "/",
+  //   element: <Home />
+  // },
   {
     path: "courses",
     element:  <Courses />,
@@ -28,14 +28,14 @@ export const privateRoutes = [
     path: "/courses/:courseId/offers/:offerId/lessons",
     element: <Lessons />,
   },
-  {
-    path: "notifications",
-    element: <Notifications />,
-  },
-  {
-    path: "forum",
-    element: <div>forum page</div>,
-  },
+  // {
+  //   path: "notifications",
+  //   element: <Notifications />,
+  // },
+  // {
+  //   path: "forum",
+  //   element: <div>forum page</div>,
+  // },
   {
     path: "profile",
     element: <Profile />,

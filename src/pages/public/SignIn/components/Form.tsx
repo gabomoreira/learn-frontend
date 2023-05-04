@@ -55,6 +55,7 @@ export const Form = ({handleLogin, isLoading} : Props) => {
             register={{...register('password')}} 
             placeholder='Senha'
             error={errors.password?.message}
+            type='password'
           />
 
           <button type="submit" 

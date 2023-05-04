@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 import { Course, getAllCourses } from "../../../services/Courses"
 import { ItemVerticalImg } from "../../../shared/components/ItemVerticalImg"
 import { Loading } from "../../../shared/components/Loading"
@@ -10,10 +11,14 @@ export const Courses = () => {
     async function fetchCourses() {
         setIsLoading(true)
 
-        const data = await getAllCourses()
-        setCourses(data)
-        
-        setIsLoading(false)
+        try {
+            const data = await getAllCourses()
+            setCourses(data)
+        } catch (error) {
+            toast.error('Não foi possível buscar os cursos');
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     useEffect(() => {
